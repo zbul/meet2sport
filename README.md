@@ -1,6 +1,7 @@
 # Meet2Sport
 
 ## Instalacja:
+1. `git clone https://github.com/mligeziak/meet2sport.git --config core.autocrlf=false`
 1. Zainstaluj yarn z linku https://yarnpkg.com/en/docs/install
 1. W wierszu poleceń przejdź do katalogu z projektem
 1. Uruchom `yarn install`
