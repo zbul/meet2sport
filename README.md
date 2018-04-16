@@ -1,5 +1,10 @@
 # Meet2Sport
 
+## Instalacja:
+1. Zainstaluj yarn z linku https://yarnpkg.com/en/docs/install
+1. W wierszu poleceń przejdź do katalogu z projektem
+1. Uruchom `yarn install`
+
 ## Skład zespołu:
 * Przemysław Nikiel, 187598, KrDUIs1012
 * Rafał Kwiecień, 187161, KrDUIs1012
