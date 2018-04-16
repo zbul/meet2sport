@@ -5,6 +5,8 @@
 1. Zainstaluj yarn z linku https://yarnpkg.com/en/docs/install
 1. W wierszu poleceń przejdź do katalogu z projektem
 1. Uruchom `yarn install`
+1. Uruchom emulator lub podłącz telefon do komputera
+1. Uruchom `yarn run android`
 
 ## Skład zespołu:
 * Przemysław Nikiel, 187598, KrDUIs1012
