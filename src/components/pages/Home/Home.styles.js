@@ -1,11 +1,9 @@
-import { StyleSheet } from 'react-native';
+import styled from 'styled-components';
+import { Text } from 'native-base';
 
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 36,
-    margin: 20,
-    textAlign: 'center',
-  },
-});
+const TextWrapper = styled(Text)`
+  font-size: 32px;
+  margin: 20px;
+`;
 
-export default styles;
+export { TextWrapper };

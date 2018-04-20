@@ -1,12 +1,11 @@
 import React from 'react';
-import { Text } from 'native-base';
 
 import AppLayout from '../../ui/AppLayout';
-import styles from './Home.styles';
+import { TextWrapper } from './Home.styles';
 
 const Home = () => (
   <AppLayout pageTitle="Home">
-    <Text style={styles.text}>Home content</Text>
+    <TextWrapper>Home content</TextWrapper>
   </AppLayout>
 );
 
