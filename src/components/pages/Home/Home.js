@@ -1,11 +1,17 @@
 import React from 'react';
+import { Actions } from 'react-native-router-flux';
+import {
+  Button,
+  Text,
+} from 'native-base';
 
 import AppLayout from '../../ui/AppLayout';
-import { TextWrapper } from './Home.styles';
 
 const Home = () => (
   <AppLayout pageTitle="Home">
-    <TextWrapper>Home content</TextWrapper>
+    <Button onPress={() => Actions.pop()}>
+      <Text>Cofnij</Text>
+    </Button>
   </AppLayout>
 );
 

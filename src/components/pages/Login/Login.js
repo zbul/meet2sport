@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Button, Text } from 'native-base';
+import { Actions } from 'react-native-router-flux';
 
 import AppLayout from '../../ui/AppLayout';
 import Logo from '../../ui/Logo';
@@ -18,7 +19,10 @@ const Home = () => (
         <Form>
           <Input placeholder="Login" />
           <Input placeholder="Hasło" type="password" />
-          <Button full>
+          <Button
+            full
+            onPress={() => Actions.home()}
+          >
             <Text>Zaloguj</Text>
           </Button>
         </Form>
