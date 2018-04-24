@@ -33,17 +33,18 @@ const AppLayout = ({
           <Right />
         </Header>
     }
-    <Content>{children}</Content>
+    <Content padder>{children}</Content>
   </Container>
 );
 
 AppLayout.propTypes = {
-  pageTitle: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
+  pageTitle: PropTypes.string,
   withoutHeader: PropTypes.bool,
 };
 
 AppLayout.defaultProps = {
+  pageTitle: null,
   withoutHeader: false,
 };
 
