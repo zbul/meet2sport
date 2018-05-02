@@ -5,7 +5,7 @@ import {
   Text,
 } from 'native-base';
 
-import AppLayout from '../../ui/AppLayout';
+import AppLayout from 'components/ui/AppLayout';
 
 const Home = () => (
   <AppLayout pageTitle="Home">

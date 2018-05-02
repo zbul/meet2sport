@@ -10,12 +10,18 @@ import { InputWrapper } from './Input.styles';
 const Input = ({
   placeholder,
   type,
+  onChangeText,
+  value,
+  name,
 }) => (
   <InputWrapper>
     <Item>
       <NBInput
+        name={name}
         secureTextEntry={type === 'password'}
         placeholder={placeholder}
+        onChangeText={onChangeText}
+        value={value}
       />
     </Item>
   </InputWrapper>
@@ -23,7 +29,10 @@ const Input = ({
 
 Input.propTypes = {
   placeholder: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['text', 'password']),
+  onChangeText: PropTypes.func.isRequired,
 };
 
 Input.defaultProps = {
