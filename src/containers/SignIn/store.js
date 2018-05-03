@@ -10,15 +10,14 @@ const initialState = {
 };
 
 const actions = {
-  onSubmit: 'LOGIN_ON_SUBMIT',
+  onSubmit: 'SIGN_IN_ON_SUBMIT',
 };
 
 export const onSubmit = (data) => {
   ApiManager.initializeFirebase();
-  const promise = ApiManager.login(data.email, data.password)
+  const promise = ApiManager.signIn(data.email, data.password)
     .then((result) => {
-      ApiManager.setUserId(result.uid);
-      Actions.push('home');
+      Actions.push('login');
       return result;
     });
 

@@ -5,6 +5,7 @@ import { Router, Scene } from 'react-native-router-flux';
 import ReduxPromise from 'redux-promise';
 
 import Login from 'containers/Login';
+import SignIn from 'containers/SignIn';
 import Home from 'containers/Home';
 import reducers from './src/reducers';
 
@@ -18,6 +19,10 @@ const App = () => (
           key="login"
           component={Login}
           initial
+        />
+        <Scene
+          key="signIn"
+          component={SignIn}
         />
         <Scene
           key="home"

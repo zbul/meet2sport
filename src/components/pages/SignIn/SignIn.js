@@ -1,30 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button, Text } from 'native-base';
-import { TouchableOpacity } from 'react-native';
 import { Formik } from 'formik';
-import { Actions } from 'react-native-router-flux';
 
 import AppLayout from 'components/ui/AppLayout';
-import Logo from 'components/ui/Logo';
 import Input from 'components/ui/Input';
 
-import { loginShape } from './Login.shapes';
+import { signInShape } from './SignIn.shapes';
 import {
   FormWrapper,
   PageWrapper,
-  SignInWrapper,
-  SignInLink,
-} from './Login.styles';
+} from './SignIn.styles';
 
-const Login = ({
+const SignIn = ({
   initialValues,
   onSubmit,
   error,
 }) => (
-  <AppLayout withoutHeader>
+  <AppLayout withGoBack pageTitle="Zarejestruj się">
     <PageWrapper>
-      <Logo />
       <FormWrapper>
         <Formik
           initialValues={initialValues}
@@ -54,30 +48,24 @@ const Login = ({
                 full
                 onPress={handleSubmit}
               >
-                <Text>Zaloguj</Text>
+                <Text>Dalej</Text>
               </Button>
             </Form>
           )}
         />
       </FormWrapper>
-      <SignInWrapper>
-        <Text>Nie masz konta?</Text>
-        <TouchableOpacity onPress={() => { Actions.push('signIn'); }}>
-          <SignInLink>Zarejestruj się teraz</SignInLink>
-        </TouchableOpacity>
-      </SignInWrapper>
     </PageWrapper>
   </AppLayout>
 );
 
-Login.propTypes = {
-  initialValues: loginShape.isRequired,
+SignIn.propTypes = {
+  initialValues: signInShape.isRequired,
   error: PropTypes.string,
   onSubmit: PropTypes.func.isRequired,
 };
 
-Login.defaultProps = {
+SignIn.defaultProps = {
   error: null,
 };
 
-export default Login;
+export default SignIn;

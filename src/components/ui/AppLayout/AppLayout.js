@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Actions } from 'react-native-router-flux';
 import {
   Container,
   Header,
@@ -16,6 +17,7 @@ const AppLayout = ({
   pageTitle,
   children,
   withoutHeader,
+  withGoBack,
 }) => (
   <Container>
     {
@@ -24,7 +26,11 @@ const AppLayout = ({
         <Header>
           <Left>
             <Button transparent>
-              <Icon name="menu" />
+              {
+                withGoBack ?
+                  <Icon onPress={() => { Actions.pop(); }} name="arrow-back" /> :
+                  <Icon name="menu" />
+              }
             </Button>
           </Left>
           <Body>
@@ -41,11 +47,13 @@ AppLayout.propTypes = {
   children: PropTypes.node.isRequired,
   pageTitle: PropTypes.string,
   withoutHeader: PropTypes.bool,
+  withGoBack: PropTypes.bool,
 };
 
 AppLayout.defaultProps = {
   pageTitle: null,
   withoutHeader: false,
+  withGoBack: false,
 };
 
 export default AppLayout;
