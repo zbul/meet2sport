@@ -7,6 +7,8 @@ import ReduxPromise from 'redux-promise';
 import Login from 'containers/Login';
 import SignIn from 'containers/SignIn';
 import Home from 'containers/Home';
+import EventPreview from 'containers/EventPreview';
+import SelectPlace from 'containers/SelectPlace';
 import reducers from './src/reducers';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
@@ -27,6 +29,14 @@ const App = () => (
         <Scene
           key="home"
           component={Home}
+        />
+        <Scene
+          key="selectPlace"
+          component={SelectPlace}
+        />
+        <Scene
+          key="eventPreview"
+          component={EventPreview}
         />
       </Scene>
     </Router>
