@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Text, Picker, Item } from 'native-base';
+import { Form, Text, Picker } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
 import AppLayout from '../../ui/AppLayout';
@@ -12,15 +12,12 @@ import {
   PlaceLabel,
 } from './SelectPlace.styles';
 
-
 const Home = () => (
   <AppLayout pageTitle="Wybierz miejsce">
     <PageWrapper>
       <FormWrapper>
         <Form>
-          <Item fixedLabel>
-            <PlaceLabel>Wybierz:</PlaceLabel>
-          </Item>
+          <PlaceLabel>Wybierz:</PlaceLabel>
           <Picker
             iosHeader="Select one"
             mode="dropdown"

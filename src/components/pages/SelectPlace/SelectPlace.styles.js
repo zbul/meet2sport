@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { View, Button, Label } from 'native-base';
 
-
 const FormWrapper = styled(View)`
   padding: 20px;
 `;
@@ -20,7 +19,6 @@ const UpperButton = styled(Button)`
 const PlaceLabel = styled(Label)`
   margin-bottom: 20px;
 `;
-
 
 export {
   FormWrapper,
