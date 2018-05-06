@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, List, ListItem } from 'native-base';
 import { Actions } from 'react-native-router-flux';
+import MapView from 'react-native-maps';
 
 import AppLayout from '../../ui/AppLayout';
 
@@ -17,14 +18,22 @@ const Home = () => (
     <PageWrapper>
       <MapWrapper>
         <MapEvent
-          mapType="satellite"
+          mapType="hybrid"
           region={{
             latitude: 50.091875,
             longitude: 19.971997,
             latitudeDelta: 0.001,
             longitudeDelta: 0.001,
           }}
-        />
+        >
+          <MapView.Marker
+            coordinate={{
+              latitude: 50.091875,
+              longitude: 19.971997,
+            }}
+            title="os. Strzelców 3"
+          />
+        </MapEvent>
       </MapWrapper>
       <List>
         <ListItem>
