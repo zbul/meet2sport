@@ -63,7 +63,7 @@ const AppLayout = ({
               active={activeTab === 'events'}
               onPress={() => { Actions.push('eventPreview'); }}
             >
-              <Icon name="camera" />
+              <Icon name="md-calendar" />
               <Text>Wydarzenia</Text>
             </Button>
             <Button
@@ -71,7 +71,7 @@ const AppLayout = ({
               active={activeTab === 'places'}
               onPress={() => { Actions.push('selectPlace'); }}
             >
-              <Icon name="navigate" />
+              <Icon name="md-map" />
               <Text>Miejsca</Text>
             </Button>
           </FooterTab>
