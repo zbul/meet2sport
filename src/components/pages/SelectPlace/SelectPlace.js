@@ -12,7 +12,7 @@ import {
   PlaceLabel,
 } from './SelectPlace.styles';
 
-const Home = () => (
+const SelectPlace = () => (
   <AppLayout pageTitle="Wybierz miejsce">
     <PageWrapper>
       <FormWrapper>
@@ -44,4 +44,4 @@ const Home = () => (
   </AppLayout>
 );
 
-export default Home;
+export default SelectPlace;

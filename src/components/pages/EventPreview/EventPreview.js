@@ -13,7 +13,7 @@ import {
   TextBold,
 } from './EventPreview.styles';
 
-const Home = () => (
+const EventPreview = () => (
   <AppLayout pageTitle="Wydarzenie">
     <PageWrapper>
       <MapWrapper>
@@ -67,4 +67,4 @@ const Home = () => (
   </AppLayout>
 );
 
-export default Home;
+export default EventPreview;
