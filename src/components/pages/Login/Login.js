@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, Button, Text } from 'native-base';
+import { Form, Button, Text, Icon } from 'native-base';
 import { TouchableOpacity } from 'react-native';
 import { Formik } from 'formik';
 import { Actions } from 'react-native-router-flux';
 
+import ApiManager from 'utils/ApiManager';
 import AppLayout from 'components/ui/AppLayout';
 import Logo from 'components/ui/Logo';
 import Input from 'components/ui/Input';
@@ -15,6 +16,7 @@ import {
   PageWrapper,
   SignInWrapper,
   SignInLink,
+  SocialIconsWrapper,
 } from './Login.styles';
 
 const Login = ({
@@ -66,6 +68,14 @@ const Login = ({
           <SignInLink>Zarejestruj się teraz</SignInLink>
         </TouchableOpacity>
       </SignInWrapper>
+      <SocialIconsWrapper>
+        <TouchableOpacity onPress={() => { ApiManager.signInWithGoogle(); }}>
+          <Icon name="google" type="FontAwesome" />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Icon name="facebook" type="FontAwesome" />
+        </TouchableOpacity>
+      </SocialIconsWrapper>
     </PageWrapper>
   </AppLayout>
 );
