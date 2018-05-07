@@ -22,7 +22,7 @@ const Login = ({
   onSubmit,
   error,
 }) => (
-  <AppLayout withoutHeader>
+  <AppLayout withoutHeader withoutFooterTabs>
     <PageWrapper>
       <Logo />
       <FormWrapper>

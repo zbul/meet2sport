@@ -13,7 +13,7 @@ import {
 } from './SelectPlace.styles';
 
 const Home = () => (
-  <AppLayout pageTitle="Wybierz miejsce">
+  <AppLayout pageTitle="Wybierz miejsce" activeTab="places" withGoBack>
     <PageWrapper>
       <FormWrapper>
         <Form>

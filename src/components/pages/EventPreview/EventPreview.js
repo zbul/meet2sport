@@ -13,7 +13,7 @@ import {
 } from './EventPreview.styles';
 
 const Home = () => (
-  <AppLayout pageTitle="Wydarzenie">
+  <AppLayout pageTitle="Wydarzenie" activeTab="events" withGoBack>
     <PageWrapper>
       <MapWrapper>
         <MapEvent
