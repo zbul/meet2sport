@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Form, Text, Picker } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import { Formik } from 'formik';
 
 import AppLayout from '../../ui/AppLayout';
 
-import { selectPlaceShape } from './SelectPlace.shapes';
+import { placeShape, selectPlaceShape } from './SelectPlace.shapes';
 
 import {
   FormWrapper,
@@ -16,47 +17,52 @@ import {
 } from './SelectPlace.styles';
 
 const SelectPlace = ({
+  places,
   initialValues,
+  onSubmit,
 }) => (
-  <AppLayout pageTitle="Wybierz miejsce">
+  <AppLayout pageTitle="Wybierz miejsce" activeTab="places" withGoBack>
     <PageWrapper>
       <FormWrapper>
         <Formik
           initialValues={initialValues}
+          onSubmit={onSubmit}
           render={({
-          values,
-          setFieldValue,
-            }) => (
-              <Form>
-                <PlaceLabel>Wybierz:</PlaceLabel>
-                <Picker
-                  name="place"
-                  selectedValue={values.place}
-                  onValueChange={selectedValue => setFieldValue('place', selectedValue)}
-                  iosHeader="Select one"
-                  mode="dropdown"
-                >
-                  <Picker.Item label="os. Strzelców 3" value="key0" />
-                  <Picker.Item label="os. Oświecenia 30" value="key1" />
-                  <Picker.Item label="os. Złotego Wieku 36" value="key2" />
-                  <Picker.Item label="Akademiki PK" value="key3" />
-                  <Picker.Item label="Park Tysiąclecia" value="key4" />
-                  <Picker.Item label="Centrum Sportowe Parkowa" value="key5" />
-                </Picker>
-                <UpperButton
-                  full
-                  onPress={() => Actions.home()}
-                >
-                  <Text>Dodaj nowe</Text>
-                </UpperButton>
-                <BottomButton
-                  full
-                  onPress={() => Actions.home()}
-                >
-                  <Text>Dalej</Text>
-                </BottomButton>
-              </Form>
-              )}
+            values,
+            setFieldValue,
+            handleSubmit,
+          }) => (
+            <Form>
+              <PlaceLabel>Wybierz:</PlaceLabel>
+              <Picker
+                name="place"
+                selectedValue={values.place}
+                onValueChange={(selectedValue) => { setFieldValue('place', selectedValue); }}
+                iosHeader="Wybierz"
+                mode="dropdown"
+              >
+                {places.map(place => (
+                  <Picker.Item
+                    key={place.id}
+                    label={`${place.street} ${place.number}, ${place.city}`}
+                    value={place.id}
+                  />
+                ))}
+              </Picker>
+              <UpperButton
+                full
+                onPress={() => Actions.home()}
+              >
+                <Text>Dodaj nowe</Text>
+              </UpperButton>
+              <BottomButton
+                full
+                onPress={handleSubmit}
+              >
+                <Text>Dalej</Text>
+              </BottomButton>
+            </Form>
+          )}
         />
       </FormWrapper>
     </PageWrapper>
@@ -64,7 +70,9 @@ const SelectPlace = ({
 );
 
 SelectPlace.propTypes = {
+  places: PropTypes.arrayOf(placeShape).isRequired,
   initialValues: selectPlaceShape.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default SelectPlace;

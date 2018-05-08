@@ -8,7 +8,7 @@ import {
 import AppLayout from 'components/ui/AppLayout';
 
 const Home = () => (
-  <AppLayout pageTitle="Home">
+  <AppLayout pageTitle="Home" activeTab="home">
     <Button onPress={() => Actions.pop()}>
       <Text>Cofnij</Text>
     </Button>

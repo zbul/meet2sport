@@ -6,7 +6,7 @@ const FormWrapper = styled(View)`
 `;
 
 const PageWrapper = styled(View)`
-  padding-top: 50px;
+  padding-top: 20px;
 `;
 
 const SignInWrapper = styled(View)`
@@ -21,9 +21,16 @@ const SignInLink = styled(Text)`
   text-decoration: underline;
 `;
 
+const SocialIconsWrapper = styled(View)`
+  padding: 25px 50px 0;
+  justify-content: space-around;
+  flex-direction: row;
+`;
+
 export {
   FormWrapper,
   PageWrapper,
   SignInWrapper,
   SignInLink,
+  SocialIconsWrapper,
 };

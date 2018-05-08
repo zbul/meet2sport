@@ -14,7 +14,7 @@ import {
 } from './EventPreview.styles';
 
 const EventPreview = () => (
-  <AppLayout pageTitle="Wydarzenie">
+  <AppLayout pageTitle="Wydarzenie" activeTab="events" withGoBack>
     <PageWrapper>
       <MapWrapper>
         <MapEvent

@@ -17,7 +17,7 @@ const SignIn = ({
   onSubmit,
   error,
 }) => (
-  <AppLayout withGoBack pageTitle="Zarejestruj się">
+  <AppLayout withGoBack withoutFooterTabs pageTitle="Zarejestruj się">
     <PageWrapper>
       <FormWrapper>
         <Formik

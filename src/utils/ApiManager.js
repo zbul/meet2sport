@@ -29,6 +29,10 @@ const ApiManager = {
     return firebase.auth().createUserWithEmailAndPassword(email, password);
   },
 
+  signInWithGoogle() {
+    return true;
+  },
+
   login(email, password) {
     return firebase.auth().signInWithEmailAndPassword(email, password);
   },
