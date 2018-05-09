@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, List, ListItem } from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import MapView from 'react-native-maps';
+import { MapView } from 'expo';
 
 import AppLayout from '../../ui/AppLayout';
 

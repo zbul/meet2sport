@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { View, Button, Text } from 'native-base';
-import MapView from 'react-native-maps';
+import { MapView } from 'expo';
 
 const PageWrapper = styled(View)``;
 

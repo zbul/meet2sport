@@ -1,8 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { AppLoading, Font } from 'expo';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { Router, Scene } from 'react-native-router-flux';
 import ReduxPromise from 'redux-promise';
+import RobotoFont from 'native-base/Fonts/Roboto.ttf';
+import RoboToMediumFont from 'native-base/Fonts/Roboto_medium.ttf';
 
 import Login from 'containers/Login';
 import SignIn from 'containers/SignIn';
@@ -13,34 +17,75 @@ import reducers from './src/reducers';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
-const App = () => (
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <Router>
-      <Scene hideNavBar key="root">
-        <Scene
-          key="login"
-          component={Login}
-          initial
+class App extends React.Component {
+  static propTypes = {
+    skipLoadingScreen: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    skipLoadingScreen: false,
+  };
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLoadingComplete: false,
+    };
+  }
+
+  loadResourcesAsync = async () => (
+    Promise.all([
+      Font.loadAsync({
+        Roboto: RobotoFont,
+        Roboto_medium: RoboToMediumFont,
+      }),
+    ])
+  );
+
+  handleFinishLoading = () => {
+    this.setState({ isLoadingComplete: true });
+  };
+
+  render() {
+    if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
+      return (
+        <AppLoading
+          startAsync={this.loadResourcesAsync}
+          onFinish={this.handleFinishLoading}
         />
-        <Scene
-          key="signIn"
-          component={SignIn}
-        />
-        <Scene
-          key="home"
-          component={Home}
-        />
-        <Scene
-          key="selectPlace"
-          component={SelectPlace}
-        />
-        <Scene
-          key="eventPreview"
-          component={EventPreview}
-        />
-      </Scene>
-    </Router>
-  </Provider>
-);
+      );
+    }
+    return (
+      <Provider store={createStoreWithMiddleware(reducers)}>
+        <Router>
+          <Scene hideNavBar key="root">
+            <Scene
+              key="login"
+              component={Login}
+              initial
+            />
+            <Scene
+              key="signIn"
+              component={SignIn}
+            />
+            <Scene
+              key="home"
+              component={Home}
+            />
+            <Scene
+              key="selectPlace"
+              component={SelectPlace}
+            />
+            <Scene
+              key="eventPreview"
+              component={EventPreview}
+            />
+          </Scene>
+        </Router>
+      </Provider>
+    );
+  }
+}
 
 export default App;
