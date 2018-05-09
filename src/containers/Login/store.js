@@ -14,7 +14,6 @@ const actions = {
 };
 
 export const onSubmit = (data) => {
-  ApiManager.initializeFirebase();
   const promise = ApiManager.login(data.email, data.password)
     .then((result) => {
       ApiManager.setUserId(result.uid);

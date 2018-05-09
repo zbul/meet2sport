@@ -1,33 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import SelectPlace from 'components/pages/SelectPlace';
 
-const SelectPlacePage = () => (
-  <SelectPlace
-    initialValues={{
-      place: 2,
-    }}
-    places={[
-      {
-        id: 1,
-        city: 'Kraków',
-        street: 'Strzelców',
-        number: '3',
-      },
-      {
-        id: 2,
-        city: 'Kraków2',
-        street: 'Strzelców2',
-        number: '32',
-      },
-      {
-        id: 3,
-        city: 'Kraków3',
-        street: 'Strzelców3',
-        number: '33',
-      },
-    ]}
-    onSubmit={() => {}}
-  />
+import { onSubmit, getPlaces } from './store';
+
+const SelectPlacePage = props => (
+  <SelectPlace {...props} />
 );
 
-export default SelectPlacePage;
+const mapStateToProps = state => ({
+  ...state.selectPlace,
+});
+
+export default connect(mapStateToProps, { onSubmit, getPlaces })(SelectPlacePage);

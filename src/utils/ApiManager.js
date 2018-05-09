@@ -1,4 +1,6 @@
 import firebase from 'firebase';
+import '@firebase/firestore';
+
 import {
   API_KEY,
   AUTH_DOMAIN,
@@ -11,6 +13,7 @@ import {
 const ApiManager = {
   userId: null,
   firebaseApp: null,
+  db: null,
 
   initializeFirebase() {
     if (!this.firebaseApp) {
@@ -25,8 +28,18 @@ const ApiManager = {
     }
   },
 
+  initializeFirestore() {
+    if (!this.db) {
+      this.db = firebase.firestore();
+      this.db.settings({
+        timestampsInSnapshots: true,
+      });
+    }
+  },
+
   signIn(email, password) {
-    return firebase.auth().createUserWithEmailAndPassword(email, password);
+    this.initializeFirebase();
+    return this.firebaseApp.auth().createUserWithEmailAndPassword(email, password);
   },
 
   signInWithGoogle() {
@@ -34,7 +47,24 @@ const ApiManager = {
   },
 
   login(email, password) {
-    return firebase.auth().signInWithEmailAndPassword(email, password);
+    this.initializeFirebase();
+    return this.firebaseApp.auth().signInWithEmailAndPassword(email, password);
+  },
+
+  getAll(collectionName) {
+    this.initializeFirebase();
+    this.initializeFirestore();
+
+    return this.db.collection(collectionName).get().then((snapshots) => {
+      const array = [];
+      snapshots.forEach((snapshot) => {
+        const item = snapshot.data();
+        item.id = snapshot.id;
+        array.push(item);
+      });
+
+      return array;
+    });
   },
 
   setUserId(userId) {

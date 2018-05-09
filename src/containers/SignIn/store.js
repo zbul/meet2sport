@@ -14,7 +14,6 @@ const actions = {
 };
 
 export const onSubmit = (data) => {
-  ApiManager.initializeFirebase();
   const promise = ApiManager.signIn(data.email, data.password)
     .then((result) => {
       Actions.push('login');

@@ -16,63 +16,68 @@ import {
   PlaceLabel,
 } from './SelectPlace.styles';
 
-const SelectPlace = ({
-  places,
-  initialValues,
-  onSubmit,
-}) => (
-  <AppLayout pageTitle="Wybierz miejsce" activeTab="places" withGoBack>
-    <PageWrapper>
-      <FormWrapper>
-        <Formik
-          initialValues={initialValues}
-          onSubmit={onSubmit}
-          render={({
-            values,
-            setFieldValue,
-            handleSubmit,
-          }) => (
-            <Form>
-              <PlaceLabel>Wybierz:</PlaceLabel>
-              <Picker
-                name="place"
-                selectedValue={values.place}
-                onValueChange={(selectedValue) => { setFieldValue('place', selectedValue); }}
-                iosHeader="Wybierz"
-                mode="dropdown"
-              >
-                {places.map(place => (
-                  <Picker.Item
-                    key={place.id}
-                    label={`${place.street} ${place.number}, ${place.city}`}
-                    value={place.id}
-                  />
-                ))}
-              </Picker>
-              <UpperButton
-                full
-                onPress={() => Actions.home()}
-              >
-                <Text>Dodaj nowe</Text>
-              </UpperButton>
-              <BottomButton
-                full
-                onPress={handleSubmit}
-              >
-                <Text>Dalej</Text>
-              </BottomButton>
-            </Form>
-          )}
-        />
-      </FormWrapper>
-    </PageWrapper>
-  </AppLayout>
-);
+class SelectPlace extends React.Component {
+  static propTypes = {
+    places: PropTypes.arrayOf(placeShape).isRequired,
+    initialValues: selectPlaceShape.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    getPlaces: PropTypes.func.isRequired,
+  };
 
-SelectPlace.propTypes = {
-  places: PropTypes.arrayOf(placeShape).isRequired,
-  initialValues: selectPlaceShape.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-};
+  componentWillMount() {
+    this.props.getPlaces();
+  }
+
+  render() {
+    return (
+      <AppLayout pageTitle="Wybierz miejsce" activeTab="places" withGoBack>
+        <PageWrapper>
+          <FormWrapper>
+            <Formik
+              initialValues={this.props.initialValues}
+              onSubmit={this.props.onSubmit}
+              render={({
+                values,
+                setFieldValue,
+                handleSubmit,
+              }) => (
+                <Form>
+                  <PlaceLabel>Wybierz:</PlaceLabel>
+                  <Picker
+                    name="place"
+                    selectedValue={values.place}
+                    onValueChange={(selectedValue) => { setFieldValue('place', selectedValue); }}
+                    iosHeader="Wybierz"
+                    mode="dropdown"
+                  >
+                    {this.props.places.map(place => (
+                      <Picker.Item
+                        key={place.id}
+                        label={`${place.street} ${place.number}, ${place.city}`}
+                        value={place.id}
+                      />
+                    ))}
+                  </Picker>
+                  <UpperButton
+                    full
+                    onPress={() => Actions.home()}
+                  >
+                    <Text>Dodaj nowe</Text>
+                  </UpperButton>
+                  <BottomButton
+                    full
+                    onPress={handleSubmit}
+                  >
+                    <Text>Dalej</Text>
+                  </BottomButton>
+                </Form>
+              )}
+            />
+          </FormWrapper>
+        </PageWrapper>
+      </AppLayout>
+    );
+  }
+}
 
 export default SelectPlace;
