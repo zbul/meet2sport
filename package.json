@@ -1,11 +1,8 @@
 {
   "name": "meet2sport",
   "version": "0.0.1",
-  "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "android": "react-native run-android",
-    "test": "jest",
+    "start": "exp start --android --localhost",
     "lint": "eslint ./"
   },
   "husky": {
@@ -13,18 +10,20 @@
       "pre-commit": "yarn run lint"
     }
   },
+  "main": "node_modules/expo/AppEntry.js",
+  "private": true,
   "dependencies": {
-    "firebase": "^4.13.1",
+    "@firebase/firestore": "^0.5.1",
+    "expo": "^27.0.1",
+    "firebase": "^5.0.1",
     "formik": "^0.11.11",
-    "native-base": "^2.4.2",
+    "native-base": "^2.4.3",
     "prop-types": "^15.6.1",
-    "react": "16.3.2",
-    "react-native": "0.55.3",
-    "react-native-datepicker": "^1.7.2",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
     "react-native-dotenv": "^0.1.1",
-    "react-native-maps": "^0.21.0",
     "react-native-router-flux": "^4.0.0-beta.28",
-    "react-promise": "^2.0.2",
+    "react-native-datepicker": "^1.7.2",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-promise": "^0.5.3",
@@ -32,20 +31,14 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
-    "babel-jest": "22.4.3",
     "babel-plugin-module-resolver": "^3.1.1",
-    "babel-preset-react-native": "4.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-import-resolver-babel-module": "^4.0.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
-    "husky": "^1.0.0-rc.1",
-    "jest": "22.4.3",
-    "react-test-renderer": "16.3.2"
-  },
-  "jest": {
-    "preset": "react-native"
+    "exp": "^53.1.0",
+    "husky": "^1.0.0-rc.1"
   }
 }
