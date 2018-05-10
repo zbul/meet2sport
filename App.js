@@ -14,6 +14,7 @@ import Home from 'containers/Home';
 import EventPreview from 'containers/EventPreview';
 import SelectPlace from 'containers/SelectPlace';
 import Filter from 'containers/Filter';
+import AddEvents from 'containers/AddEvents';
 import reducers from './src/reducers';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
@@ -84,6 +85,10 @@ class App extends React.Component {
             <Scene
               key="filter"
               component={Filter}
+            />
+            <Scene
+              key="addEvents"
+              component={AddEvents}
               initial
             />
           </Scene>

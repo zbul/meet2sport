@@ -1,4 +1,4 @@
-import React, {} from 'react';
+import React from 'react';
 import { Form, Text, Picker } from 'native-base';
 import AppLayout from 'components/ui/AppLayout';
 import { Actions } from 'react-native-router-flux';
