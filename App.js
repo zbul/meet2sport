@@ -15,7 +15,7 @@ import EventPreview from 'containers/EventPreview';
 import SelectPlace from 'containers/SelectPlace';
 import Filter from 'containers/Filter';
 import AddEvents from 'containers/AddEvents';
-import Places from 'containers/Places';
+import AddPlace from 'containers/AddPlace';
 import reducers from './src/reducers';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
@@ -66,6 +66,7 @@ class App extends React.Component {
             <Scene
               key="login"
               component={Login}
+              initial
             />
             <Scene
               key="signIn"
@@ -92,9 +93,8 @@ class App extends React.Component {
               component={AddEvents}
             />
             <Scene
-              key="places"
-              component={Places}
-              initial
+              key="addPlace"
+              component={AddPlace}
             />
           </Scene>
         </Router>

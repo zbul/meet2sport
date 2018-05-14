@@ -7,9 +7,9 @@ import { Formik } from 'formik';
 import {
   FormWrapper,
   PageWrapper,
-} from './Places.styles';
+} from './AddPlace.styles';
 
-const Places = ({
+const AddPlace = ({
   initialValues,
   onSubmit,
 }) => (
@@ -58,9 +58,10 @@ const Places = ({
   </AppLayout>
 );
 
-Places.propTypes = {
-  initialValues: PropTypes.func.isRequired,
+AddPlace.propTypes = {
+  // TODO: add shape
+  initialValues: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   onSubmit: PropTypes.func.isRequired,
 };
 
-export default Places;
+export default AddPlace;
