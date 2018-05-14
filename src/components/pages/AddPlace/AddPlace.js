@@ -13,7 +13,7 @@ const AddPlace = ({
   initialValues,
   onSubmit,
 }) => (
-  <AppLayout pageTitle="Dodaj miejsce">
+  <AppLayout pageTitle="Dodaj miejsce" activeTab="places" withGoBack>
     <PageWrapper>
       <FormWrapper>
         <Formik

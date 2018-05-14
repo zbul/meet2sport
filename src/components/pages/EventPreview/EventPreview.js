@@ -61,7 +61,7 @@ const EventPreview = () => (
         full
         onPress={() => Actions.home()}
       >
-        <Text>Dalej</Text>
+        <Text>Dołącz</Text>
       </BottomButton>
     </PageWrapper>
   </AppLayout>

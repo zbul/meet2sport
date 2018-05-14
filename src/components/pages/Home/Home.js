@@ -34,7 +34,7 @@ const Home = () => (
             </ActionButton>
           </Col>
           <Col>
-            <ActionButton onPress={() => { Actions.push('addEvents'); }}>
+            <ActionButton onPress={() => { Actions.push('selectPlace'); }}>
               <CenteredText>DODAJ WYDARZENIE</CenteredText>
             </ActionButton>
           </Col>

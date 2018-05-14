@@ -66,7 +66,6 @@ class App extends React.Component {
             <Scene
               key="login"
               component={Login}
-              initial
             />
             <Scene
               key="signIn"
@@ -75,6 +74,7 @@ class App extends React.Component {
             <Scene
               key="home"
               component={Home}
+              initial
             />
             <Scene
               key="selectPlace"

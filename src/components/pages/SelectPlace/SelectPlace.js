@@ -60,7 +60,7 @@ class SelectPlace extends React.Component {
                   </Picker>
                   <UpperButton
                     full
-                    onPress={() => Actions.home()}
+                    onPress={() => Actions.push('addPlace')}
                   >
                     <Text>Dodaj nowe</Text>
                   </UpperButton>
