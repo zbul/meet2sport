@@ -1,5 +1,4 @@
 import ApiManager from 'utils/ApiManager';
-import { Actions } from 'react-native-router-flux';
 
 const initialState = {
   events: [],
@@ -12,14 +11,6 @@ const actions = {
   getEvents: 'SELECT_EVENT_GET_EVENTS',
 };
 
-export const onSubmit = (data) => {
-  Actions.push('addEvents');
-
-  return {
-    type: actions.onSubmit,
-    selectedEventId: data.event,
-  };
-};
 
 export const getEvents = () => {
   const promise = ApiManager.getAll('/events');
@@ -36,11 +27,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         events: action.payload,
-      };
-    case actions.onSubmit:
-      return {
-        ...state,
-        selectedEventId: action.selectedEventId,
       };
     default:
       return state;

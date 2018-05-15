@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, List, ListItem } from 'native-base';
+import { Text, List, ListItem, Button } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
 import AppLayout from '../../ui/AppLayout';
@@ -23,11 +23,17 @@ class Events extends React.Component {
 
   render() {
     return (
-      <AppLayout pageTitle="Wydarzenia" activeTab="places" withGoBack>
+      <AppLayout pageTitle="Wydarzenia" activeTab="events" withGoBack>
         <PageWrapper>
+          <Button
+            full
+            onPress={() => { Actions.push('filter'); }}
+          >
+            <Text>Filtry</Text>
+          </Button>
           <List>
             {this.props.events.map(event => (
-              <ListItem onPress={() => { Actions.push('home'); }} ><Text>{`${event.discipline}  ${event.lookingFor}  ${event.time} ${event.date} `}</Text></ListItem>
+              <ListItem key={event.id} onPress={() => { Actions.push('home'); }} ><Text>{`${event.discipline}  ${event.lookingFor}  ${event.time} ${event.date} `}</Text></ListItem>
                     ))}
           </List>
         </PageWrapper>
