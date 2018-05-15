@@ -64,12 +64,12 @@ const AddEvents = ({
               <Text>Godzina:</Text>
               <DatePicker
                 name="time"
-                time={values.time}
                 style={{ width: 200 }}
+                date={values.time}
                 mode="time"
                 androidMode="spinner"
-                format="HH:mm"
-                onDateChange={(time) => { setFieldValue('time', time); }}
+                format="H:mm"
+                onDateChange={(date) => { setFieldValue('time', date); }}
               />
               <EventsButton
                 full
