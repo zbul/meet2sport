@@ -17,6 +17,7 @@ import Filter from 'containers/Filter';
 import AddEvents from 'containers/AddEvents';
 import AddPlace from 'containers/AddPlace';
 import Places from 'containers/Places';
+import Events from 'containers/Events';
 import reducers from './src/reducers';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
@@ -100,6 +101,10 @@ class App extends React.Component {
               key="places"
               component={Places}
               initial
+            />
+            <Scene
+              key="events"
+              component={Events}
             />
           </Scene>
         </Router>

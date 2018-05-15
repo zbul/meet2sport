@@ -61,7 +61,7 @@ const AppLayout = ({
             <Button
               vertical
               active={activeTab === 'events'}
-              onPress={() => { Actions.push('eventPreview'); }}
+              onPress={() => { Actions.push('events'); }}
             >
               <Icon name="md-calendar" />
               <Text>Wydarzenia</Text>
