@@ -23,6 +23,7 @@ const AppLayout = ({
   withoutFooterTabs,
   activeTab,
   withGoBack,
+  withoutPadding,
 }) => (
   <Container>
     {
@@ -44,7 +45,7 @@ const AppLayout = ({
           <Right />
         </Header>
     }
-    <Content padder>{children}</Content>
+    <Content padder={!withoutPadding}>{children}</Content>
     {
       withoutFooterTabs ?
         null :
@@ -69,7 +70,7 @@ const AppLayout = ({
             <Button
               vertical
               active={activeTab === 'places'}
-              onPress={() => { Actions.push('selectPlace'); }}
+              onPress={() => { Actions.push('places'); }}
             >
               <Icon name="md-map" />
               <Text>Miejsca</Text>
@@ -87,6 +88,7 @@ AppLayout.propTypes = {
   withoutHeader: PropTypes.bool,
   withoutFooterTabs: PropTypes.bool,
   withGoBack: PropTypes.bool,
+  withoutPadding: PropTypes.bool,
 };
 
 AppLayout.defaultProps = {
@@ -95,6 +97,7 @@ AppLayout.defaultProps = {
   withoutHeader: false,
   withoutFooterTabs: false,
   withGoBack: false,
+  withoutPadding: false,
 };
 
 export default AppLayout;

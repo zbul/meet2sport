@@ -7,7 +7,7 @@ import AppLayout from '../../ui/AppLayout';
 
 import { eventShape } from './Events.shapes';
 
-import { PageWrapper } from './Events.styles';
+import { ButtonWrapper } from './Events.styles';
 
 class Events extends React.Component {
   static propTypes = {
@@ -23,20 +23,20 @@ class Events extends React.Component {
 
   render() {
     return (
-      <AppLayout pageTitle="Wydarzenia" activeTab="events" withGoBack>
-        <PageWrapper>
+      <AppLayout pageTitle="Wydarzenia" activeTab="events" withGoBack withoutPadding>
+        <ButtonWrapper>
           <Button
             full
             onPress={() => { Actions.push('filter'); }}
           >
             <Text>Filtry</Text>
           </Button>
-          <List>
-            {this.props.events.map(event => (
-              <ListItem key={event.id} onPress={() => { Actions.push('home'); }} ><Text>{`${event.discipline}  ${event.lookingFor}  ${event.time} ${event.date} `}</Text></ListItem>
-                    ))}
-          </List>
-        </PageWrapper>
+        </ButtonWrapper>
+        <List>
+          {this.props.events.map(event => (
+            <ListItem key={event.id} onPress={() => { Actions.push('home'); }} ><Text>{`${event.discipline}  ${event.lookingFor}  ${event.time} ${event.date} `}</Text></ListItem>
+                  ))}
+        </List>
       </AppLayout>
     );
   }

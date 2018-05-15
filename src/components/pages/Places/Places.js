@@ -7,8 +7,6 @@ import AppLayout from '../../ui/AppLayout';
 
 import { placeShape } from './Places.shapes';
 
-import { PageWrapper } from './Places.styles';
-
 class Places extends React.Component {
   static propTypes = {
     places: PropTypes.arrayOf(placeShape).isRequired,
@@ -23,14 +21,12 @@ class Places extends React.Component {
 
   render() {
     return (
-      <AppLayout pageTitle="Miejsca" activeTab="places" withGoBack>
-        <PageWrapper>
-          <List>
-            {this.props.places.map(place => (
-              <ListItem onPress={() => { Actions.push('home'); }} key={place.id}><Text>{`${place.street} ${place.number}, ${place.city}`}</Text></ListItem>
-                    ))}
-          </List>
-        </PageWrapper>
+      <AppLayout pageTitle="Miejsca" activeTab="places" withGoBack withoutPadding>
+        <List>
+          {this.props.places.map(place => (
+            <ListItem onPress={() => { Actions.push('home'); }} key={place.id}><Text>{`${place.street} ${place.number}, ${place.city}`}</Text></ListItem>
+                  ))}
+        </List>
       </AppLayout>
     );
   }
