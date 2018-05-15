@@ -3,15 +3,11 @@ import { Image } from 'react-native';
 
 import LogoImage from 'static/img/logo.png';
 
-import {
-  LogoWrapper,
-  LogoText,
-} from './Logo.styles';
+import { LogoWrapper } from './Logo.styles';
 
 const Logo = () => (
   <LogoWrapper>
-    <Image style={{ width: 130, height: 130 }} source={LogoImage} />
-    <LogoText>Meet2Sport</LogoText>
+    <Image style={{ width: 350, height: 175 }} source={LogoImage} />
   </LogoWrapper>
 );
 
