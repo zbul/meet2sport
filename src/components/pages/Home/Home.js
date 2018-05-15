@@ -24,7 +24,7 @@ const Home = () => (
         </Row>
         <Row>
           <Col>
-            <ActionButton>
+            <ActionButton onPress={() => { Actions.push('places'); }}>
               <CenteredText>MIEJSCA</CenteredText>
             </ActionButton>
           </Col>
