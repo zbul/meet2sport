@@ -29,7 +29,7 @@ const AddEvents = ({
             handleSubmit,
           }) => (
             <Form>
-              <EventsLabel>Dyscyplina: {selectedPlaceId}</EventsLabel>
+              <EventsLabel>Dyscyplina:</EventsLabel>
               <Picker
                 name="discipline"
                 selectedValue={values.discipline}

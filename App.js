@@ -76,6 +76,7 @@ class App extends React.Component {
             <Scene
               key="home"
               component={Home}
+              initial
             />
             <Scene
               key="selectPlace"
@@ -100,7 +101,6 @@ class App extends React.Component {
             <Scene
               key="places"
               component={Places}
-              initial
             />
             <Scene
               key="events"
