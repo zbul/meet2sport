@@ -16,7 +16,7 @@ const actions = {
 export const onSubmit = (data) => {
   const promise = ApiManager.login(data.email, data.password)
     .then((result) => {
-      ApiManager.setUserId(result.uid);
+      ApiManager.setUserId(result.user.uid);
       Actions.push('home');
       return result;
     });
