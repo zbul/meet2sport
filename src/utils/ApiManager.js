@@ -67,6 +67,18 @@ const ApiManager = {
     });
   },
 
+  getOne(collectionName, id) {
+    this.initializeFirebase();
+    this.initializeFirestore();
+
+    return this.db.collection(collectionName).doc(id).get().then((doc) => {
+      const item = doc.data();
+      item.id = doc.id;
+
+      return item;
+    });
+  },
+
   addDocument(collectionName, document) {
     this.initializeFirebase();
     this.initializeFirestore();
