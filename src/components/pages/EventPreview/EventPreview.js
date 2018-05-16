@@ -20,6 +20,7 @@ class EventPreview extends React.Component {
     lookingFor: PropTypes.string.isRequired,
     time: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     eventId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    place: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
     onJoin: PropTypes.func.isRequired,
     getEvent: PropTypes.func.isRequired,
   };
@@ -62,7 +63,7 @@ class EventPreview extends React.Component {
             </ListItem>
             <ListItem>
               <TextBold>Miejsce: </TextBold>
-              <Text>Strzelców 3</Text>
+              <Text>{this.props.place.street ? `${this.props.place.street} ${this.props.place.number}, ${this.props.place.city}` : null}</Text>
             </ListItem>
             <ListItem>
               <TextBold>Data: </TextBold>

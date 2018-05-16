@@ -6,6 +6,11 @@ const initialState = {
   time: '',
   discipline: '',
   lookingFor: '',
+  place: {
+    city: '',
+    street: '',
+    number: '',
+  },
 };
 
 const actions = {
@@ -29,7 +34,14 @@ export const onJoin = (eventId) => {
 };
 
 export const getEvent = (eventId) => {
-  const promise = ApiManager.getOne('events', eventId);
+  const promise = ApiManager.getOne('events', eventId).then(event => (
+    ApiManager.getOne('places', event.placeId).then((place) => {
+      const eventWithPlace = event;
+      eventWithPlace.place = place;
+
+      return eventWithPlace;
+    })
+  ));
 
   return ({
     type: actions.getEvent,
@@ -50,6 +62,11 @@ const reducer = (state = initialState, action) => {
         time: action.payload.time,
         discipline: action.payload.discipline,
         lookingFor: action.payload.lookingFor,
+        place: {
+          city: action.payload.place.city,
+          street: action.payload.place.street,
+          number: action.payload.place.number,
+        },
       };
     default:
       return state;
