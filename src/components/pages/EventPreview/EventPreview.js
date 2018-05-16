@@ -1,9 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Text, List, ListItem } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import { MapView } from 'expo';
 
 import AppLayout from '../../ui/AppLayout';
+
+import { eventShape } from './EventPreview.shapes';
 
 import {
   PageWrapper,
@@ -13,8 +16,20 @@ import {
   TextBold,
 } from './EventPreview.styles';
 
-const EventPreview = () => (
-  <AppLayout pageTitle="Wydarzenie" activeTab="events" withGoBack>
+
+class EventPreview extends React.Component {
+  static propTypes = {
+    events: PropTypes.arrayOf(eventShape).isRequired,
+    getEvents: PropTypes.func.isRequired,
+  };
+
+  componentWillMount() {
+    this.props.getEvents();
+  }
+
+  render() {
+    return (
+      <AppLayout pageTitle="Wydarzenie" activeTab="events" withGoBack>
     <PageWrapper>
       <MapWrapper>
         <MapEvent
@@ -35,14 +50,15 @@ const EventPreview = () => (
           />
         </MapEvent>
       </MapWrapper>
+      {this.props.events.map(event => (
       <List>
         <ListItem>
           <TextBold>Dyscyplina: </TextBold>
-          <Text>Piłka nożna</Text>
+          <Text>{event.discipline}</Text>
         </ListItem>
         <ListItem>
           <TextBold>Kogo szukamy: </TextBold>
-          <Text>Zespół</Text>
+          <Text>{event.lookingFor}</Text>
         </ListItem>
         <ListItem>
           <TextBold>Miejsce: </TextBold>
@@ -50,13 +66,14 @@ const EventPreview = () => (
         </ListItem>
         <ListItem>
           <TextBold>Data: </TextBold>
-          <Text>12/12/2018</Text>
+          <Text>{event.date}</Text>
         </ListItem>
         <ListItem>
           <TextBold>Godzina: </TextBold>
-          <Text>12:12</Text>
+          <Text>{event.time}</Text>
         </ListItem>
       </List>
+      ))}
       <BottomButton
         full
         onPress={() => Actions.home()}
@@ -65,6 +82,9 @@ const EventPreview = () => (
       </BottomButton>
     </PageWrapper>
   </AppLayout>
-);
+    );
+  }
+}
 
 export default EventPreview;
+
