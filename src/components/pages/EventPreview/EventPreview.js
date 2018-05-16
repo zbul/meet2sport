@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, List, ListItem } from 'native-base';
-import { Actions } from 'react-native-router-flux';
 import { MapView } from 'expo';
 
 import AppLayout from '../../ui/AppLayout';
@@ -14,18 +13,19 @@ import {
   TextBold,
 } from './EventPreview.styles';
 
-
 class EventPreview extends React.Component {
   static propTypes = {
     date: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     discipline: PropTypes.string.isRequired,
     lookingFor: PropTypes.string.isRequired,
     time: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    eventId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    onJoin: PropTypes.func.isRequired,
     getEvent: PropTypes.func.isRequired,
   };
 
   componentWillMount() {
-    this.props.getEvent();
+    this.props.getEvent(this.props.eventId);
   }
 
   render() {
@@ -75,7 +75,7 @@ class EventPreview extends React.Component {
           </List>
           <BottomButton
             full
-            onPress={() => Actions.home()}
+            onPress={() => this.props.onJoin(this.props.eventId)}
           >
             <Text>Dołącz</Text>
           </BottomButton>
