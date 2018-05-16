@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "start": "exp start --android --localhost",
+    "build": "exp build:android",
     "lint": "eslint ./"
   },
   "husky": {

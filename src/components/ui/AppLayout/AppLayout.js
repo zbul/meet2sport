@@ -31,13 +31,12 @@ const AppLayout = ({
         null :
         <Header>
           <Left>
-            <Button transparent>
-              {
-                withGoBack ?
-                  <Icon onPress={() => { Actions.pop(); }} name="arrow-back" /> :
-                  <Icon name="menu" />
-              }
-            </Button>
+            {
+              withGoBack ?
+                <Button transparent>
+                  <Icon onPress={() => { Actions.pop(); }} name="arrow-back" />
+                </Button> : null
+            }
           </Left>
           <Body>
             <Title>{pageTitle}</Title>

@@ -1,13 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, List, ListItem, Button } from 'native-base';
+import { Text, List, Button } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
 import AppLayout from '../../ui/AppLayout';
 
 import { eventShape } from './Events.shapes';
 
-import { ButtonWrapper } from './Events.styles';
+import {
+  ButtonWrapper,
+  TextSmall,
+  ListItemWrapper,
+} from './Events.styles';
 
 class Events extends React.Component {
   static propTypes = {
@@ -15,11 +19,9 @@ class Events extends React.Component {
     getEvents: PropTypes.func.isRequired,
   };
 
-
   componentWillMount() {
     this.props.getEvents();
   }
-
 
   render() {
     return (
@@ -34,8 +36,11 @@ class Events extends React.Component {
         </ButtonWrapper>
         <List>
           {this.props.events.map(event => (
-            <ListItem key={event.id} onPress={() => { Actions.push('home'); }} ><Text>{`${event.discipline}  ${event.lookingFor}  ${event.time} ${event.date} `}</Text></ListItem>
-                  ))}
+            <ListItemWrapper key={event.id} onPress={() => { Actions.push('home'); }} >
+              <Text>{`${event.date} ${event.time}`}</Text>
+              <TextSmall>{`${event.discipline} - ${event.lookingFor}`}</TextSmall>
+            </ListItemWrapper>
+          ))}
         </List>
       </AppLayout>
     );

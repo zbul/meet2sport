@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "meet2sport",
+    "name": "Meet2Sport",
     "description": "This project is really great.",
     "slug": "meet2sport",
     "privacy": "public",
@@ -23,6 +23,9 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android": {
+      "package": "pl.mligeza.meet2sport"
+    },
     "ios": {
       "supportsTablet": true
     }
