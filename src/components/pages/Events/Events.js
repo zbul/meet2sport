@@ -36,7 +36,10 @@ class Events extends React.Component {
         </ButtonWrapper>
         <List>
           {this.props.events.map(event => (
-            <ListItemWrapper key={event.id} onPress={() => { Actions.push('home'); }} >
+            <ListItemWrapper
+              key={event.id}
+              onPress={() => { Actions.eventPreview({ eventId: event.id }); }}
+            >
               <Text>{`${event.date} ${event.time}`}</Text>
               <TextSmall>{`${event.discipline} - ${event.lookingFor}`}</TextSmall>
             </ListItemWrapper>
