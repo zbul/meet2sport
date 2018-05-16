@@ -25,7 +25,7 @@ class EventPreview extends React.Component {
   };
 
   componentWillMount() {
-    this.props.getEvent();
+    this.props.getEvent(this.props.eventId);
   }
 
   render() {
@@ -53,23 +53,23 @@ class EventPreview extends React.Component {
           </MapWrapper>
           <List>
             <ListItem>
-              <TextBold>Dyscyplina:</TextBold>
+              <TextBold>Dyscyplina: </TextBold>
               <Text>{this.props.discipline}</Text>
             </ListItem>
             <ListItem>
-              <TextBold>Kogo szukamy:</TextBold>
+              <TextBold>Kogo szukamy: </TextBold>
               <Text>{this.props.lookingFor}</Text>
             </ListItem>
             <ListItem>
-              <TextBold>Miejsce:</TextBold>
+              <TextBold>Miejsce: </TextBold>
               <Text>Strzelców 3</Text>
             </ListItem>
             <ListItem>
-              <TextBold>Data:</TextBold>
+              <TextBold>Data: </TextBold>
               <Text>{this.props.date}</Text>
             </ListItem>
             <ListItem>
-              <TextBold>Godzina:</TextBold>
+              <TextBold>Godzina: </TextBold>
               <Text>{this.props.time}</Text>
             </ListItem>
           </List>
