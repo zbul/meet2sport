@@ -5,6 +5,7 @@ const initialState = {
   city: '',
   street: '',
   number: '',
+  rating: 0,
   location: {
     lat: 0,
     lng: 0,
@@ -39,6 +40,7 @@ const reducer = (state = initialState, action) => {
         city: action.payload.city,
         street: action.payload.street,
         number: action.payload.number,
+        rating: action.payload.rating,
         location: action.payload.location,
       };
     default:
