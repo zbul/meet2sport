@@ -12,6 +12,7 @@ import Login from 'containers/Login';
 import SignIn from 'containers/SignIn';
 import Home from 'containers/Home';
 import EventPreview from 'containers/EventPreview';
+import PlacePreview from 'containers/PlacePreview';
 import SelectPlace from 'containers/SelectPlace';
 import Filter from 'containers/Filter';
 import AddEvents from 'containers/AddEvents';
@@ -68,7 +69,6 @@ class App extends React.Component {
             <Scene
               key="login"
               component={Login}
-              initial
             />
             <Scene
               key="signIn"
@@ -103,8 +103,13 @@ class App extends React.Component {
               component={Places}
             />
             <Scene
+              key="placePreview"
+              component={PlacePreview}
+            />
+            <Scene
               key="events"
               component={Events}
+              initial
             />
           </Scene>
         </Router>

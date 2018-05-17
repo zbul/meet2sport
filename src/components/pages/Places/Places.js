@@ -24,8 +24,13 @@ class Places extends React.Component {
       <AppLayout pageTitle="Miejsca" activeTab="places" withGoBack withoutPadding>
         <List>
           {this.props.places.map(place => (
-            <ListItem onPress={() => { Actions.push('home'); }} key={place.id}><Text>{`${place.street} ${place.number}, ${place.city}`}</Text></ListItem>
-                  ))}
+            <ListItem
+              onPress={() => { Actions.placePreview({ placeId: place.id }); }}
+              key={place.id}
+            >
+              <Text>{`${place.street} ${place.number}, ${place.city}`}</Text>
+            </ListItem>
+          ))}
         </List>
       </AppLayout>
     );

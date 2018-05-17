@@ -7,6 +7,7 @@ import AddPlaceReducer from 'containers/AddPlace/store';
 import AddEventsReducer from 'containers/AddEvents/store';
 import SelectEventsReducer from 'containers/Events/store';
 import EventPreviewReducer from 'containers/EventPreview/store';
+import PlacePreviewReducer from 'containers/PlacePreview/store';
 
 const RootReducer = combineReducers({
   login: LoginReducer,
@@ -16,6 +17,7 @@ const RootReducer = combineReducers({
   addEvents: AddEventsReducer,
   selectEvents: SelectEventsReducer,
   eventPreview: EventPreviewReducer,
+  placePreview: PlacePreviewReducer,
 });
 
 export default RootReducer;
