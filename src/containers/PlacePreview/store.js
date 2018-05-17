@@ -19,7 +19,8 @@ const actions = {
 export const getPlace = (placeId) => {
   const promise = ApiManager.getOne('places', placeId).then((place) => {
     Geocoder.setApiKey('AIzaSyCMFNBJGpzyBM0jKj0ekrF4iQUD7F21K04');
-    return Geocoder.from(`${place.street} ${place.number}, ${place.street}`).then((json) => {
+    const address = `${place.city}, ${place.street} ${place.number}`;
+    return Geocoder.from(address).then((json) => {
       const placeWithCoords = place;
       placeWithCoords.location = json.results[0].geometry.location;
       return placeWithCoords;

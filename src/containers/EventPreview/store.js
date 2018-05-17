@@ -46,7 +46,8 @@ export const getEvent = (eventId) => {
       return eventWithPlace;
     }).then((eventWithPlace) => {
       Geocoder.setApiKey('AIzaSyCMFNBJGpzyBM0jKj0ekrF4iQUD7F21K04');
-      return Geocoder.from(`${eventWithPlace.place.street} ${eventWithPlace.place.number}, ${eventWithPlace.place.street}`).then((json) => {
+      const address = `${eventWithPlace.place.city}, ${eventWithPlace.place.street} ${eventWithPlace.place.number}`;
+      return Geocoder.from(address).then((json) => {
         const eventWithPlaceAndCoords = eventWithPlace;
         eventWithPlaceAndCoords.place.location = json.results[0].geometry.location;
         return eventWithPlaceAndCoords;
