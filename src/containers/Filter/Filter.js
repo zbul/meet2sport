@@ -1,4 +1,5 @@
 import React from 'react';
+import { Actions } from 'react-native-router-flux';
 import Filter from 'components/pages/Filter';
 
 const FilterPage = () => (
@@ -31,7 +32,7 @@ const FilterPage = () => (
         lookingFor: 'Pojedynczy gracz',
       },
     ]}
-    onSubmit={() => {}}
+    onSubmit={() => { Actions.events(); }}
   />
 );
 
