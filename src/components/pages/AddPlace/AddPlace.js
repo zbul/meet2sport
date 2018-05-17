@@ -4,9 +4,12 @@ import AppLayout from 'components/ui/AppLayout';
 import Input from 'components/ui/Input';
 import PropTypes from 'prop-types';
 import { Formik } from 'formik';
+import StarRating from 'react-native-star-rating';
+
 import {
   FormWrapper,
   PageWrapper,
+  RatingWrapper,
 } from './AddPlace.styles';
 
 const AddPlace = ({
@@ -44,6 +47,14 @@ const AddPlace = ({
                 placeholder="Numer"
                 keyboardtype="numeric"
               />
+              <RatingWrapper>
+                <StarRating
+                  disabled={false}
+                  maxStars={5}
+                  rating={values.rating}
+                  selectedStar={rating => setFieldValue('rating', rating)}
+                />
+              </RatingWrapper>
               <Button
                 full
                 onPress={handleSubmit}

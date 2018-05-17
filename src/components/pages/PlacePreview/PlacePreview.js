@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, List, ListItem } from 'native-base';
 import { MapView } from 'expo';
+import StarRating from 'react-native-star-rating';
 
 import AppLayout from '../../ui/AppLayout';
 
@@ -10,6 +11,7 @@ import {
   MapEvent,
   MapWrapper,
   TextBold,
+  RatingWrapper,
 } from './PlacePreview.styles';
 
 class PlacePreview extends React.Component {
@@ -18,6 +20,7 @@ class PlacePreview extends React.Component {
     street: PropTypes.string.isRequired,
     number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     location: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+    rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     placeId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     getPlace: PropTypes.func.isRequired,
   };
@@ -49,6 +52,13 @@ class PlacePreview extends React.Component {
               />
             </MapEvent>
           </MapWrapper>
+          <RatingWrapper>
+            <StarRating
+              disabled
+              maxStars={5}
+              rating={this.props.rating}
+            />
+          </RatingWrapper>
           <List>
             <ListItem>
               <TextBold>Ulica: </TextBold>

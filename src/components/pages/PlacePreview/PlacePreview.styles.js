@@ -16,9 +16,14 @@ const TextBold = styled(Text)`
   font-weight: bold;
 `;
 
+const RatingWrapper = styled(View)`
+  padding: 20px 0;
+`;
+
 export {
   PageWrapper,
   MapEvent,
   MapWrapper,
   TextBold,
+  RatingWrapper,
 };

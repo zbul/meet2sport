@@ -6,6 +6,7 @@ const initialState = {
     city: '',
     street: '',
     number: '',
+    rating: 0,
   },
 };
 
