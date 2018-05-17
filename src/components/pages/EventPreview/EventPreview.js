@@ -37,16 +37,16 @@ class EventPreview extends React.Component {
             <MapEvent
               mapType="hybrid"
               region={{
-                latitude: 50.091875,
-                longitude: 19.971997,
+                latitude: this.props.place.location.lat,
+                longitude: this.props.place.location.lng,
                 latitudeDelta: 0.001,
                 longitudeDelta: 0.001,
               }}
             >
               <MapView.Marker
                 coordinate={{
-                  latitude: 50.091875,
-                  longitude: 19.971997,
+                  latitude: this.props.place.location.lat,
+                  longitude: this.props.place.location.lng,
                 }}
                 title="os. Strzelców 3"
               />

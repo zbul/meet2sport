@@ -1,4 +1,5 @@
 import ApiManager from 'utils/ApiManager';
+import Geocoder from 'react-native-geocoding';
 import { Actions } from 'react-native-router-flux';
 
 const initialState = {
@@ -10,6 +11,10 @@ const initialState = {
     city: '',
     street: '',
     number: '',
+    location: {
+      lat: 0,
+      lng: 0,
+    },
   },
 };
 
@@ -38,8 +43,14 @@ export const getEvent = (eventId) => {
     ApiManager.getOne('places', event.placeId).then((place) => {
       const eventWithPlace = event;
       eventWithPlace.place = place;
-
       return eventWithPlace;
+    }).then((eventWithPlace) => {
+      Geocoder.setApiKey('AIzaSyCMFNBJGpzyBM0jKj0ekrF4iQUD7F21K04');
+      return Geocoder.from(`${eventWithPlace.place.street} ${eventWithPlace.place.number}, ${eventWithPlace.place.street}`).then((json) => {
+        const eventWithPlaceAndCoords = eventWithPlace;
+        eventWithPlaceAndCoords.place.location = json.results[0].geometry.location;
+        return eventWithPlaceAndCoords;
+      });
     })
   ));
 
@@ -66,6 +77,7 @@ const reducer = (state = initialState, action) => {
           city: action.payload.place.city,
           street: action.payload.place.street,
           number: action.payload.place.number,
+          location: action.payload.place.location,
         },
       };
     default:
