@@ -11,7 +11,10 @@ import {
 } from 'react-native-dotenv';
 
 const ApiManager = {
-  userId: null,
+  user: {
+    id: null,
+    email: null,
+  },
   firebaseApp: null,
   db: null,
 
@@ -86,12 +89,12 @@ const ApiManager = {
     return this.db.collection(collectionName).add(document);
   },
 
-  setUserId(userId) {
-    this.userId = userId;
+  setUser(user) {
+    this.user = user;
   },
 
-  getUserId() {
-    return this.userId;
+  getUser() {
+    return this.user;
   },
 };
 

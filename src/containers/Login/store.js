@@ -16,7 +16,10 @@ const actions = {
 export const onSubmit = (data) => {
   const promise = ApiManager.login(data.email, data.password)
     .then((result) => {
-      ApiManager.setUserId(result.user.uid);
+      ApiManager.setUser({
+        id: result.user.uid,
+        email: data.email,
+      });
       Actions.push('home');
       return result;
     });
