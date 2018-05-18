@@ -20,13 +20,12 @@ Projekt ma na celu stworzenie aplikacji społecznościowej, dzięki której uży
 Uwierzytelnianie użytkowników aplikacji będzie przeprowadzone za pomocą Firebase. W projekcie zostanie wykorzystane Google Maps API oraz inne popularne komponenty i biblioteki. Całość zostanie zbudowana w oparciu o framework React Native.
 
 ### Raport
+| Michał Ligęza | Przemysław Nikiel |  Rafał Kwiecień |  Kamil Maj   |
+| ------------- |:-----------------:| :--------------:| :----------: |
+| Projektowanie layoutu i funkcjonalności aplikacji - 2h | Projektowanie layoutu i funkcjonalności aplikacji - 2h | Projektowanie layoutu i funkcjonalności aplikacji - 2h | Projektowanie layoutu i funkcjonalności aplikacji - 2h |
+| Prototypowanie aplikacji -3h | Prototypowanie aplikacji -3h | Prototypowanie aplikacji -3h | Prototypowanie aplikacji -3h |
+| Konfiguracja react-native -4h | Konfiguracja react-native -4h | Konfiguracja react-native -4h | Konfiguracja react-native -16h |
+| Front-end ekranu logowania -5h | Front-end ekranu rejestracji -5h | Front-end podglądu wydarzenia -5h | Front-end listy wydarzeń -8h |
+| Back-end logowania -4h | Back-end rejestracji -6h | Dołączenie API Google Maps -7h | Back-end listy wydarzeń -8h |
+| Obsługa Firebase -9h | Front-end ekranu dodaj wydarzenie -3h | Implementacja funkcjonalnosci znajdowania wydarzenia na mapie -5h | Strona projektu w repozytorium -2h |
 
-|Michał Ligęza|h|Przemysław Nikiel|h|Rafał Kwiecień|h|Kamil Maj |h|
-|-|-|-|-|-|-|-|
-|Projektowanie layoutu i funkcjonalności aplikacji|3|Projektowanie layoutu i funkcjonalności aplikacji|3|Projektowanie layoutu i funkcjonalności aplikacji|3|Projektowanie layoutu i funkcjonalności aplikacji|3|
-|Wykonanie prototypu|3|Front-end ekranów logowania, rejestracji i menu|7|Wykonanie prototypu|3|Wykonanie prototypu|3|
-|Wykonanie szkieletu pliku html| 0,5|Funkcje odpowiadające za rejestracja, logowanie, wylogowywanie|12|Front-end strony o autorach|0,5|Konfiguracja react-native|18,5|
-|Front-end ekranów home, pokaż drogę, dodaj wydarzenie, twoje konto|10|Strona projektu na git|2|Obsługa Firebase|8|Strona projektu na git|2|
-|Funkcje obsługi dodawania/wyświetlania/usuwania rekordów z Firebase|10|||Obsługa Map|10|
-||20%||24||22,5|
-||34,5%||33,8%||31,7%|
