@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, List, ListItem } from 'native-base';
 import { MapView } from 'expo';
-
+import { eventPreviewShape } from './EventPreview.shapes';
 import AppLayout from '../../ui/AppLayout';
 
 import {
@@ -11,6 +11,8 @@ import {
   MapEvent,
   MapWrapper,
   TextBold,
+  ListItemWrapper,
+  Member,
 } from './EventPreview.styles';
 
 class EventPreview extends React.Component {
@@ -23,6 +25,7 @@ class EventPreview extends React.Component {
     place: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
     onJoin: PropTypes.func.isRequired,
     getEvent: PropTypes.func.isRequired,
+    eventPreview: PropTypes.arrayOf(eventPreviewShape).isRequired,
   };
 
   componentWillMount() {
@@ -37,16 +40,16 @@ class EventPreview extends React.Component {
             <MapEvent
               mapType="hybrid"
               region={{
-                latitude: this.props.place.location.lat,
-                longitude: this.props.place.location.lng,
+                latitude: 50.091875,
+                longitude: 19.971997,
                 latitudeDelta: 0.001,
                 longitudeDelta: 0.001,
               }}
             >
               <MapView.Marker
                 coordinate={{
-                  latitude: this.props.place.location.lat,
-                  longitude: this.props.place.location.lng,
+                  latitude: 50.091875,
+                  longitude: 19.971997,
                 }}
                 title="os. Strzelców 3"
               />
@@ -73,6 +76,14 @@ class EventPreview extends React.Component {
               <TextBold>Godzina: </TextBold>
               <Text>{this.props.time}</Text>
             </ListItem>
+          </List>
+          <Text>Uczestnicy:</Text>
+          <List>
+            {this.props.eventPreview.map(eventPreview => (
+              <ListItemWrapper>
+                <Member>`${eventPreview.member}</Member>
+              </ListItemWrapper>
+             ))}
           </List>
           <BottomButton
             full
