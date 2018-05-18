@@ -22,8 +22,10 @@ Uwierzytelnianie użytkowników aplikacji będzie przeprowadzone za pomocą Fire
 ### Raport
 | Michał Ligęza | Przemysław Nikiel |  Rafał Kwiecień |  Kamil Maj   |
 | ------------- |:-----------------:| :--------------:| :----------: |
-| Projektowanie layoutu i funkcjonalności aplikacji | Projektowanie layoutu i funkcjonalności aplikacji | Projektowanie layoutu i funkcjonalności aplikacji | Projektowanie layoutu i funkcjonalności aplikacji |
-| Front-end ekranów logowania, rejestracji i menu |Front-end ekranów rejestracji i menu| Wykonanie prototypu| Wykonanie prototypu |
-| Funkcje odpowiadające za rejestracja, logowanie | Konfiguracja react-native | Front-end strony| Konfiguracja react-native |
-| Front-end ekranów home, pokaż drogę, obsługa Firebase | Obsługa Firebase| Front-end ekranów home, pokaż drogę, dodaj wydarzenie| Strona projektu na git |
+| Projektowanie layoutu i funkcjonalności aplikacji - 2h | Projektowanie layoutu i funkcjonalności aplikacji - 2h | Projektowanie layoutu i funkcjonalności aplikacji - 2h | Projektowanie layoutu i funkcjonalności aplikacji - 2h |
+| Prototypowanie aplikacji -3h | Prototypowanie aplikacji -3h | Prototypowanie aplikacji -3h | Prototypowanie aplikacji -3h |
+| Konfiguracja react-native -4h | Konfiguracja react-native -4h | Konfiguracja react-native -4h | Konfiguracja react-native -16h |
+| Front-end ekranu logowania -5h | Front-end ekranu rejestracji -5h | Front-end podglądu wydarzenia -5h | Front-end listy wydarzeń -8h |
+| Back-end logowania -4h | Back-end rejestracji -6h | Dołączenie API Google Maps -7h | Back-end listy wydarzeń -8h |
+| Obsługa Firebase -9h | Front-end ekranu dodaj wydarzenie -3h | Implementacja funkcjonalnosci znajdowania wydarzenia na mapie -5h | Strona projektu w repozytorium -2h |
 
