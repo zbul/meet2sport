@@ -20,13 +20,10 @@ Projekt ma na celu stworzenie aplikacji społecznościowej, dzięki której uży
 Uwierzytelnianie użytkowników aplikacji będzie przeprowadzone za pomocą Firebase. W projekcie zostanie wykorzystane Google Maps API oraz inne popularne komponenty i biblioteki. Całość zostanie zbudowana w oparciu o framework React Native.
 
 ### Raport
+| Michał Ligęza | Przemysław Nikiel |  Rafał Kwiecień |  Kamil Maj   |
+| ------------- |:-----------------:| :--------------:| :----------: |
+| Projektowanie layoutu i funkcjonalności aplikacji | Projektowanie layoutu i funkcjonalności aplikacji | Projektowanie layoutu i funkcjonalności aplikacji | Projektowanie layoutu i funkcjonalności aplikacji |
+| Front-end ekranów logowania, rejestracji i menu |Front-end ekranów rejestracji i menu| Wykonanie prototypu| Wykonanie prototypu |
+| Funkcje odpowiadające za rejestracja, logowanie | Konfiguracja react-native | Front-end strony| Konfiguracja react-native |
+| Front-end ekranów home, pokaż drogę, obsługa Firebase | Obsługa Firebase| Front-end ekranów home, pokaż drogę, dodaj wydarzenie| Strona projektu na git |
 
-|Michał Ligęza|h|Przemysław Nikiel|h|Rafał Kwiecień|h|Kamil Maj |h|
-|-|-|-|-|-|-|-|
-|Projektowanie layoutu i funkcjonalności aplikacji|3|Projektowanie layoutu i funkcjonalności aplikacji|3|Projektowanie layoutu i funkcjonalności aplikacji|3|Projektowanie layoutu i funkcjonalności aplikacji|3|
-|Wykonanie prototypu|3|Front-end ekranów logowania, rejestracji i menu|7|Wykonanie prototypu|3|Wykonanie prototypu|3|
-|Wykonanie szkieletu pliku html| 0,5|Funkcje odpowiadające za rejestracja, logowanie, wylogowywanie|12|Front-end strony o autorach|0,5|Konfiguracja react-native|18,5|
-|Front-end ekranów home, pokaż drogę, dodaj wydarzenie, twoje konto|10|Strona projektu na git|2|Obsługa Firebase|8|Strona projektu na git|2|
-|Funkcje obsługi dodawania/wyświetlania/usuwania rekordów z Firebase|10|||Obsługa Map|10|
-||20%||24||22,5|
-||34,5%||33,8%||31,7%|
