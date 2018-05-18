@@ -69,6 +69,7 @@ class App extends React.Component {
             <Scene
               key="login"
               component={Login}
+              initial
             />
             <Scene
               key="signIn"
@@ -109,7 +110,6 @@ class App extends React.Component {
             <Scene
               key="events"
               component={Events}
-              initial
             />
           </Scene>
         </Router>

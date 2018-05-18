@@ -24,9 +24,11 @@ const actions = {
 };
 
 export const onJoin = (eventId) => {
+  const user = ApiManager.getUser();
   const promise = ApiManager.addDocument('events_users', {
     eventId,
-    userId: ApiManager.getUserId(),
+    userId: user.id,
+    email: user.email,
   }).then((result) => {
     Actions.push('home');
     return result;
