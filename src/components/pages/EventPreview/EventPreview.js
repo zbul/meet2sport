@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, List, ListItem } from 'native-base';
 import { MapView } from 'expo';
-import { eventPreviewShape } from './EventPreview.shapes';
+import { memberShape } from './EventPreview.shapes';
 import AppLayout from '../../ui/AppLayout';
 
 import {
@@ -12,7 +12,7 @@ import {
   MapWrapper,
   TextBold,
   ListItemWrapper,
-  Member,
+  MembersHeader,
 } from './EventPreview.styles';
 
 class EventPreview extends React.Component {
@@ -23,13 +23,15 @@ class EventPreview extends React.Component {
     time: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     eventId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     place: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+    members: PropTypes.arrayOf(memberShape).isRequired,
     onJoin: PropTypes.func.isRequired,
     getEvent: PropTypes.func.isRequired,
-    eventPreview: PropTypes.arrayOf(eventPreviewShape).isRequired,
+    getMembers: PropTypes.func.isRequired,
   };
 
   componentWillMount() {
     this.props.getEvent(this.props.eventId);
+    this.props.getMembers(this.props.eventId);
   }
 
   render() {
@@ -77,11 +79,11 @@ class EventPreview extends React.Component {
               <Text>{this.props.time}</Text>
             </ListItem>
           </List>
-          <Text>Uczestnicy:</Text>
+          <MembersHeader>Uczestnicy:</MembersHeader>
           <List>
-            {this.props.eventPreview.map(eventPreview => (
-              <ListItemWrapper>
-                <Member>`${eventPreview.member}</Member>
+            {this.props.members.map(member => (
+              <ListItemWrapper key={member.userId}>
+                <Text>{member.email}</Text>
               </ListItemWrapper>
              ))}
           </List>

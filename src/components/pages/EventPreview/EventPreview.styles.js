@@ -25,8 +25,10 @@ const ListItemWrapper = styled(ListItem)`
   justify-content: space-between;
 `;
 
-const Member = styled(Text)`
-    font-weight: bold;
+const MembersHeader = styled(Text)`
+  margin: 30px 10px 10px;
+  font-weight: bold;
+  font-size: 20px;
 `;
 
 export {
@@ -36,5 +38,5 @@ export {
   MapWrapper,
   TextBold,
   ListItemWrapper,
-  Member,
+  MembersHeader,
 };
