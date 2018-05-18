@@ -16,11 +16,13 @@ const initialState = {
       lng: 0,
     },
   },
+  members: [],
 };
 
 const actions = {
   onJoin: 'EVENT_PREVIEW_ON_JOIN',
   getEvent: 'EVENT_PREVIEW_GET_EVENT',
+  getMembers: 'EVENT_PREVIEW_GET_MEMBERS',
 };
 
 export const onJoin = (eventId) => {
@@ -63,6 +65,15 @@ export const getEvent = (eventId) => {
   });
 };
 
+export const getMembers = (eventId) => {
+  const promise = ApiManager.getAllWhere('events_users', 'eventId', '==', eventId);
+
+  return ({
+    type: actions.getMembers,
+    payload: promise,
+  });
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.onJoin:
@@ -82,6 +93,11 @@ const reducer = (state = initialState, action) => {
           number: action.payload.place.number,
           location: action.payload.place.location,
         },
+      };
+    case actions.getMembers:
+      return {
+        ...state,
+        members: action.payload,
       };
     default:
       return state;

@@ -70,6 +70,25 @@ const ApiManager = {
     });
   },
 
+  getAllWhere(collectionName, where1, operator, where2) {
+    this.initializeFirebase();
+    this.initializeFirestore();
+
+    return this.db.collection(collectionName)
+      .where(where1, operator, where2)
+      .get()
+      .then((snapshots) => {
+        const array = [];
+        snapshots.forEach((snapshot) => {
+          const item = snapshot.data();
+          item.id = snapshot.id;
+          array.push(item);
+        });
+
+        return array;
+      });
+  },
+
   getOne(collectionName, id) {
     this.initializeFirebase();
     this.initializeFirestore();
